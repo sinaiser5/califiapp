@@ -28,6 +28,12 @@ class HU01RegistrarAlumnos(unittest.TestCase):
         self.assertFalse(registrar_alumno(alumnos, "Luis"))
         self.assertEqual(len(alumnos), 30)
 
+    def test_no_registrar_nombre_repetido(self):
+        alumnos = ["Ana López"]
+        self.assertFalse(registrar_alumno(alumnos, "Ana López"))
+        self.assertFalse(registrar_alumno(alumnos, "ana lópez"))
+        self.assertEqual(len(alumnos), 1)
+
 
 class HU02CapturarCalificaciones(unittest.TestCase):
 
@@ -70,3 +76,4 @@ class HU04ReporteDelGrupo(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
